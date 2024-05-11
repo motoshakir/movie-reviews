@@ -7,6 +7,8 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
+
 @Document(collation = "movies")
 @Data
 @NoArgsConstructor
@@ -16,4 +18,17 @@ public class Review {
     private ObjectId id;
 
     private String body;
+
+    private LocalDateTime createdDate;
+
+    private LocalDateTime modifiedDate;
+
+
+    public Review(String body, LocalDateTime createdDate,LocalDateTime modifiedDate){
+        this.body = body;
+        this.createdDate = createdDate;
+        this.modifiedDate = modifiedDate;
+    }
+
+
 }
